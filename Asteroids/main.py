@@ -20,6 +20,7 @@ def main():
                     return
         screen.fill("black")
         player.draw(screen)
+        player.update(dt)
         pygame.display.flip()
         dt = fps_clock.tick(60)/1000
         #print(dt)
