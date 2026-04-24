@@ -35,7 +35,7 @@ def main():
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
-        updatable.update(dt)
+        
         for ast in asteroids:
             if ast.collides_with(player):
                  log_event("player_hit")
@@ -44,9 +44,10 @@ def main():
             for shot in shots:
                  if ast.collides_with(shot):
                     log_event("asteroid_shot")
-                    ast.kill()
+                    #ast.kill()
+                    ast.split()
                     shot.kill()
-
+        updatable.update(dt)
         pygame.display.flip()
         dt = fps_clock.tick(60)/1000
         #print(dt)
